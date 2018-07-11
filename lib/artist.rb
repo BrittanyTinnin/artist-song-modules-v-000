@@ -1,5 +1,6 @@
 class Artist
-  extend Memorable
+  extend Memorable::ClassMethods
+  include Memorable::InstanceMethods
   extend Findable
   include Paramable
 
@@ -9,7 +10,7 @@ class Artist
   @@artists = []
 
   def initialize#initializes an artist instance and an array of songs and saves the instance in the class variable array
-    @@artists << self
+    super
     @songs = []
   end
 
